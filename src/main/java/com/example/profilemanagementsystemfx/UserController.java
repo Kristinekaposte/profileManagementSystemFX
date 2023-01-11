@@ -252,13 +252,14 @@ public class UserController implements Initializable {
 
 
 
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection
                 ("jdbc:mysql://localhost:3306/java_class_db",
                         "root","admin");
     }
   @Override
-    public  void initialize (URL url, ResourceBundle rb)  {
+    public  void initialize (URL url, ResourceBundle rb)  { // for fxml to load/modify table data
       try {
           loadTableData();
       } catch (SQLException e) {
@@ -268,7 +269,9 @@ public class UserController implements Initializable {
 
     private void loadTableData() throws SQLException {
         getConnection();
-        ObservableList<User> user = FXCollections.observableArrayList();
+        ObservableList<User> user = FXCollections.observableArrayList(); // A List that notifies when changes are made.
+                                                                        // An ObservableList bound to the UI will keep  it
+                                                                        //up-to-date when changes occur.  used especially for fxml table
 
         String getUserData = "SELECT * FROM userdata";
         try( Connection conn =  getConnection()) {
