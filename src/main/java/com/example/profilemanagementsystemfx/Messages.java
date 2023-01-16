@@ -1,6 +1,7 @@
 package com.example.profilemanagementsystemfx;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Messages{
@@ -10,9 +11,10 @@ public class Messages{
    private LocalDateTime localDateTime;
    private String message;
 
-   public Messages(String message,String from_user) {
+   public Messages(String message,String from_user, LocalDateTime localDateTime) {
       this.message=message;
       this.from_user= from_user;
+      this.localDateTime= localDateTime;
    }
 
    @Override

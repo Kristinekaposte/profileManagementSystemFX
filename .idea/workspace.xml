@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="192a858d-e7bf-4879-b255-a80cb5510453" name="Changes" comment="2th commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/ChatWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/Messages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/profilemanagementsystemfx/chat-view.fxml" afterDir="false" />
+    <list default="true" id="192a858d-e7bf-4879-b255-a80cb5510453" name="Changes" comment="3th commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/ChatWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/ChatWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/profilemanagementsystemfx/Messages.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +34,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Kristine/Desktop/Chat_Application JAVA"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kristine/Desktop/Chat_Application JAVA&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="com.example.profilemanagementsystemfx.UserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.profilemanagementsystemfx.UserApplication" />
@@ -88,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673465139157</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="3th commit">
+      <created>1673861123121</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673861123121</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +109,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1th commit" />
     <MESSAGE value="2th commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="2th commit" />
+    <MESSAGE value="3th commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="3th commit" />
   </component>
 </project>

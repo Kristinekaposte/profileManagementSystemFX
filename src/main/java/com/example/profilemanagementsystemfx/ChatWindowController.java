@@ -27,6 +27,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -68,10 +70,10 @@ Scene scene;
     @FXML
     public  void sendButton2(ActionEvent event) {
         String messageToSend2 = chatTextInput2.getText();
-        chatMessages.add(new Messages(messageToSend2,"User2"));
+        chatMessages.add(new Messages(messageToSend2,"User2",LocalDateTime.now()));
         chatWindow.setItems(chatMessages);
         chatTextInput2.setText("");
-        System.out.println(chatMessages);
+     //   System.out.println(chatMessages);
     }
 
     public void  displayUsername(String username){
@@ -82,12 +84,15 @@ Scene scene;
     public void sendButton1(ActionEvent event) {
       //  ObservableList<Messages> chatMessages = FXCollections.observableArrayList();
             String messageToSend = chatTextInput1.getText();
-            chatMessages.add(new Messages(messageToSend, "User1"));
+            chatMessages.add(new Messages(messageToSend, "User1", LocalDateTime.now()));
             chatWindow.setItems(chatMessages); // refreshed only one line of text if observable list is here
           //  chatWindow.getItems().addAll(chatMessages); // stores all input text in new lines if observable list is here but of outside of method then returns all text from start
 
-            System.out.println(chatMessages);
+//        for (int i=0; i<chatMessages.size();i++){
+//            chatWindow.setItems(chatMessages);
+//        }
 
+         //   System.out.println(chatMessages);
 
     }
 
@@ -98,19 +103,19 @@ Scene scene;
 
            sendButton1(new ActionEvent());
            sendButton2(new ActionEvent());
-
         chatWindow.setCellFactory(new Callback<>() {
             @Override
             public ListCell<Messages> call(ListView<Messages> list) {
                 ListCell<Messages> cell = new ListCell<>() {
-
+                    Label lblTimeLeft  = new Label();
                     Label lblUserLeft = new Label();
                     Label lblTextLeft = new Label();
-                    HBox hBoxLeft = new HBox(lblUserLeft, lblTextLeft);
+                    HBox hBoxLeft = new HBox(lblTimeLeft,lblUserLeft, lblTextLeft);
 
+                    Label lblTimeRight = new Label();
                     Label lblUserRight = new Label();
                     Label lblTextRight = new Label();
-                    HBox hBoxRight = new HBox(lblTextRight, lblUserRight);
+                    HBox hBoxRight = new HBox( lblTextRight, lblUserRight,lblTimeRight);
 
                     {
                         hBoxLeft.setAlignment(Pos.CENTER_LEFT);
@@ -132,14 +137,20 @@ Scene scene;
                             setText(null);
                             setGraphic(null);
                         } else {
-                            //   System.out.println(item.getFrom_user());
+                               System.out.println(item.getFrom_user());
                             if (item.getFrom_user().equals("User1")) {
+                                lblTimeLeft.setText(item.getLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
                                 lblUserLeft.setText(item.getFrom_user() + ":");
                                 lblTextLeft.setText(item.getMessage());
+
                                 setGraphic(hBoxLeft);
                             } else {
-                                lblUserRight.setText(":" + item.getFrom_user());
+                                lblTimeRight.setText(item.getLocalDateTime().format(DateTimeFormatter.ofPattern(" HH:mm:ss yyyy/MM/dd")));
                                 lblTextRight.setText(item.getMessage());
+                                lblUserRight.setText(":" + item.getFrom_user());
+
+
+
                                 setGraphic(hBoxRight);
                             }
                         }
@@ -147,7 +158,6 @@ Scene scene;
                 };
                 return cell;
             }
-
         });
     }
 }
