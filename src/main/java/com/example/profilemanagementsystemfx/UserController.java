@@ -3,7 +3,11 @@ package com.example.profilemanagementsystemfx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.sql.Connection;
@@ -27,9 +32,10 @@ import java.util.ResourceBundle;
 public class UserController implements Initializable {
     Alert alert;
     Stage stage;
+    Scene scene;
     PreparedStatement preparedStatement;
     Connection conn;
-
+    Parent root;
 
     @FXML
     private TextField firstNameTextInput;
@@ -211,7 +217,7 @@ public class UserController implements Initializable {
         }
 
     @FXML
-    void loginButtonClicked(ActionEvent event) {
+    void loginButtonClicked(ActionEvent event) throws IOException{
         String username,password;
         username = loginUsernameTextInput.getText();
         password = loginPasswordTextInput.getText();
@@ -226,6 +232,17 @@ public class UserController implements Initializable {
 
                 alert.showAndWait();
 
+               FXMLLoader fxmlLoader = new FXMLLoader(UserApplication.class.getResource("chat-view.fxml"));
+               root=    fxmlLoader.load();
+                ChatWindowController chatWindowController = fxmlLoader.getController();
+                chatWindowController.displayUsername(username); //  sets up username to show in next window
+
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+
             }else {
                 // if username or password is not correct show
                 alert=new Alert(Alert.AlertType.WARNING);
@@ -235,11 +252,8 @@ public class UserController implements Initializable {
                 alert.showAndWait();
 
             }
-
-
-
-
             loadTableData();
+
           //  loginUsernameTextInput.setText("");
            //  loginPasswordTextInput.setText("");
 
@@ -247,11 +261,6 @@ public class UserController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
-
-
-
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection
@@ -312,4 +321,16 @@ public class UserController implements Initializable {
 
 }
     }
+
+
+
+
+
+
+
+
+
+
+
     }
+
